@@ -23,8 +23,9 @@
                 console.log("Sorch name: " + this.searchName);
                 try {
                     const url = 'https://restcountries.eu/rest/v2/name/' + this.searchName;
-                    const data = await fetch(url);
-                    console.log(data.json())
+                    const response = await fetch(url)
+                    const data = await response.json()
+                    console.log(data)
                 } catch (e) {
                     console.log(e)
                 }
