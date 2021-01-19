@@ -25,15 +25,11 @@
                     const url = 'https://restcountries.eu/rest/v2/name/' + this.searchName;
                     const response = await fetch(url)
                     const data = await response.json()
-                    console.log(data)
+                    this.$emit('search:country', data)
                 } catch (e) {
                     console.log(e)
                 }
-
-
-
             }
-
         },
     }
 </script>
