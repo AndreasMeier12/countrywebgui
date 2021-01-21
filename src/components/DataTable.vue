@@ -6,6 +6,11 @@
                 <th id="data-pop-right">{{country['population']}}</th>
             </tr>
 
+            <tr id="data-continent">
+                <th id="data-continent-left">Region</th>
+                <th id="data-continent-right">{{country['region']}}</th>
+            </tr>
+
 
 
         </table>
