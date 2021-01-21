@@ -1,0 +1,12 @@
+body {
+    background: #eee8d5;
+    color: #586e75;
+}
+
+.navigation {
+    background-color: #fdf6e3;
+    border-right-style: solid;
+    border-right-color: #002b36;
+    border-right-width: 1px;
+
+}
