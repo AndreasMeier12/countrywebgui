@@ -11,3 +11,21 @@ button{
     left:0;
 
 }
+
+#big-result-box{
+    border: 1px solid green ;
+    float:top;
+    display: inline-flex;
+
+
+}
+
+#container {
+
+    display: inline-flex
+}
+
+#big-result-img{
+    max-height: 400px;
+    width: auto;
+}

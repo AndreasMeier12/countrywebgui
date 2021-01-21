@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div id="container">
     <div class="navigation">
     <search-form @search:country="searchCountry"/>
 
@@ -10,6 +11,7 @@
     <div id="main-info">
     <div id="one-result" v-if="oneResult">
       <big-result v-bind:country="country"/>
+    </div>
     </div>
     </div>
   </div>
