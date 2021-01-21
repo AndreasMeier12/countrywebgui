@@ -5,7 +5,7 @@
     <big-result v-bind:country="country"/>
     </div>
     <div v-if="manyResults">
-    <result-selection v-bind:result="result"/>
+    <result-selection @select:country="selectCountry" v-bind:result="result"/>
     </div>
   </div>
 </template>
@@ -36,7 +36,12 @@ export default {
 
 
 
+    },
+    selectCountry(country){
+      this.oneResult=true;
+      this.country = this.result.filter(a => a['name']===country)[0];
     }
+
   },
   data() {
     return {
