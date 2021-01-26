@@ -11,6 +11,11 @@
                 <th id="data-continent-right">{{country['region']}}</th>
             </tr>
 
+            <tr id="data-area">
+                <th id="data-area-left">Area</th>
+                <th id="data-area-right">{{country['area']}}</th>
+            </tr>
+
 
 
         </table>

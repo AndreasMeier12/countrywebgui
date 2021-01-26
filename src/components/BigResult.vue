@@ -12,19 +12,35 @@
             </div>
 
         </div>
+        <plots v-bind:country="country" v-bind:all-countries="allCountries"/>
+
     </div>
 </template>
 
 <script>
     import DataTable from "./DataTable";
+    import Plots from "./Plots";
+
     var country;
+    var allCountries;
     export default {
         props: {
-            country
+            country,
+            allCountries
         },
         components: {
+            Plots,
             DataTable
 
+
+        },
+        methods: {
+            getPopulationPlotData(){
+                var pops = this.allCountries.map(x => x['population']).sort();
+                return pops;
+
+
+            }
 
         }
     }

@@ -10,7 +10,7 @@
     </div>
     <div id="main-info">
     <div id="one-result" v-if="oneResult">
-      <big-result v-bind:country="country"/>
+      <big-result v-bind:country="country"  v-bind:allCountries="allCountries"/>
     </div>
     </div>
     </div>
@@ -47,6 +47,16 @@ export default {
     selectCountry(country){
       this.oneResult=true;
       this.country = this.result.filter(a => a['name']===country)[0];
+    },
+    async prefetch(){
+      const url = 'https://restcountries.eu/rest/v2/all';
+      const response = await fetch(url);
+      this.allCountries = await response.json();
+      console.log(this.allCountries);
+      var pops = this.allCountries.map(x => x['population']).sort();
+      console.log(pops);
+
+
     }
 
   },
@@ -56,7 +66,12 @@ export default {
       oneResult: false,
       manyResults: false,
       country: null,
+      allCountries : {},
     }
+  },
+  mounted() {
+    this.prefetch();
+
   }
 }
 </script>
