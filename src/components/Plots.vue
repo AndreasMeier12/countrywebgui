@@ -34,21 +34,19 @@
                     }
                 }
 
-                const pops = this.allCountries.map(x => x['population']).sort();
-                console.log(pops.length);
-                const intervalSize = (Math.max(...pops) - Math.min(...pops)) / nBins;
-                console.log("Interval size" + intervalSize);
+                const pops = this.allCountries.map(x => x['population']);
+                const intervalSize = (Math.max(...pops) );
                 var bins = [];
                 var binLabels = [];
                 for (var i = 0; i < nBins; i++) {
                     bins.push(0);
-                    binLabels.push(String(intervalSize * i));
+                    binLabels.push(String(intervalSize * Math.pow(0.5,i)));
                 }
                 for (var j = 0; j < pops.length; j++) {
-                    const curBin = Math.floor(pops[j] / intervalSize);
-                    console.log("bin" +curBin);
+                    const curBin = Math.floor(Math.log(intervalSize/pops[j])/Math.log(2));
                     bins[curBin] = bins[curBin] + 1;
                 }
+
                 const res = {
                     labels: binLabels,
                     datasets: [
@@ -70,7 +68,7 @@
         },
 
         mounted() {
-            this.chartdata = this.getPopData(20);
+            this.chartdata = this.getPopData(30);
             console.log(this.chartdata);
             this.renderChart(this.chartdata, this.options)
         }
