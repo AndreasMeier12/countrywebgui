@@ -52,11 +52,6 @@ export default {
       const url = 'https://restcountries.eu/rest/v2/all';
       const response = await fetch(url);
       this.allCountries = await response.json();
-      console.log(this.allCountries);
-      var pops = this.allCountries.map(x => x['population']).sort();
-      console.log(pops);
-
-
     }
 
   },

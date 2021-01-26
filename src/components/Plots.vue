@@ -1,42 +1,17 @@
-
 <script>
-    import { Bar } from 'vue-chartjs'
-    var country;
-    var allCountries;
+    import {Bar} from 'vue-chartjs'
+
+
     export default {
         extends: Bar,
         name: "Plots",
         props: {
-            country,
-            allCountries
+            country: null,
+            allCountries: null,
         },
         data() {
             return {
-                chartOptionsBar: {
-                    xAxis: {
-                        data: ['Q1', 'Q2', 'Q3', 'Q4']
-                    },
-                    yAxis: {
-                        type: 'value',
-                    },
-                    series: [
-                        {
-                            type: 'bar',
-                            data: [63, 75, 24, 92]
-                        }
-                    ]
-
-                },
-                chartdata: {
-                    labels: ['January', 'February'],
-                    datasets: [
-                        {
-                            label: 'Data One',
-                            backgroundColor: '#f87979',
-                            data: [40, 20]
-                        }
-                    ]
-                },
+                chartdata: null,
                 options: {
                     responsive: true,
                     maintainAspectRatio: false
@@ -45,57 +20,58 @@
         },
         methods: {
             getPopData(nBins) {
-                if(this.country === null || this.allCountries === null){
+                if (this.country === null || this.allCountries === null) {
                     return {
-                        xAxis: {
-                            data: ['Q1', 'Q2', 'Q3', 'Q4']
-                        },
-                        yAxis: {
-                            type: 'value',
-                        },
-                        series: [
+                        labels: ['January', 'February'],
+                        datasets: [
                             {
-                                type: 'bar',
-                                data: [63, 75, 24, 92]
+                                label: 'Data One',
+                                backgroundColor: '#f87979',
+                                data: [40, 20]
                             }
                         ]
+
                     }
                 }
 
-                const sorted = this.allCountries.map(x => x['population']);
-                const intervalSize = (sorted[sorted.length-1] - sorted[0]) / nBins;
+                const pops = this.allCountries.map(x => x['population']).sort();
+                console.log(pops.length);
+                const intervalSize = (Math.max(...pops) - Math.min(...pops)) / nBins;
+                console.log("Interval size" + intervalSize);
                 var bins = [];
                 var binLabels = [];
-                for(var i =0; i < nBins; i++){
+                for (var i = 0; i < nBins; i++) {
                     bins.push(0);
                     binLabels.push(String(intervalSize * i));
                 }
-                for (i =0; i < sorted.length; i++){
-                    const curBin = Math.floor(sorted[i]/nBins);
+                for (var j = 0; j < pops.length; j++) {
+                    const curBin = Math.floor(pops[j] / intervalSize);
+                    console.log("bin" +curBin);
                     bins[curBin] = bins[curBin] + 1;
                 }
-
-                return {
-                    xAxis: {
-                        data: binLabels
-                    },
-                    yAxis: {
-                        type: 'value',
-                    },
-                    series: [
+                const res = {
+                    labels: binLabels,
+                    datasets: [
                         {
-                            type: 'bar',
+                            label: 'Population',
+                            backgroundColor: '#f87979',
                             data: bins
                         }
                     ]
-                }
+                };
+                console.log(res);
+                return res;
+
             },
+
 
             getAreaData() {
             },
         },
 
-        mounted () {
+        mounted() {
+            this.chartdata = this.getPopData(20);
+            console.log(this.chartdata);
             this.renderChart(this.chartdata, this.options)
         }
 
