@@ -13,6 +13,7 @@
 
         </div>
         <plots v-if="this.plot==='population'" v-bind:country="country" v-bind:all-countries="allCountries"/>
+        <area-plot v-if="this.plot==='area'" v-bind:country="country" v-bind:all-countries="allCountries"/>
 
     </div>
 </template>
@@ -20,6 +21,7 @@
 <script>
     import DataTable from "./DataTable";
     import Plots from "./PopulationPlot";
+    import AreaPlot from "./AreaPlot";
 
     var country;
     var allCountries;
@@ -29,6 +31,7 @@
             allCountries
         },
         components: {
+            AreaPlot,
             Plots,
             DataTable
 
@@ -43,10 +46,10 @@
                 }
             },
             showAreaPlot(){
-                if (this.plot==='population'){
+                if (this.plot==='area'){
                     this.plot = '';
                 } else{
-                    this.plot = "population";
+                    this.plot = "area";
                 }
             },
             showNoPlot(){
