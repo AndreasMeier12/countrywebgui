@@ -1,21 +1,20 @@
 <template>
     <div id="data-table">
-        <table>
-            <tr id="data-pop">
-                <th id="data-pop-left">Population</th>
-                <th id="data-pop-right">{{country['population']}}</th>
+        <table class="my-table">
+            <tr class="interactive-row" id="data-pop" v-on:click="selectPop()">
+                <th class="my-table" id="data-pop-left">Population</th>
+                <th class="my-table" id="data-pop-right">{{country['population']}}</th>
             </tr>
 
-            <tr id="data-continent">
-                <th id="data-continent-left">Region</th>
-                <th id="data-continent-right">{{country['region']}}</th>
+            <tr class="my-table" id="data-continent">
+                <th class="my-table" id="data-continent-left">Region</th>
+                <th class="my-table" id="data-continent-right">{{country['region']}}</th>
             </tr>
 
-            <tr id="data-area">
-                <th id="data-area-left">Area</th>
-                <th id="data-area-right">{{country['area']}}</th>
+            <tr class="interactive-row" v-on:click="selectArea()" id="data-area" >
+                <th class="my-table" id="data-area-left">Area</th>
+                <th class="my-table" id="data-area-right">{{country['area']}}</th>
             </tr>
-
 
 
         </table>
@@ -31,9 +30,19 @@
         props: {
             country
         },
+        methods: {
+            selectPop() {
+                    this.$emit('table:pop');
+            },
+            selectArea() {
+                    this.$emit('table:area');
+                },
+
+        },
     }
 </script>
 
 <style scoped>
+    @import "../assets/styles/shared.css";
 
 </style>

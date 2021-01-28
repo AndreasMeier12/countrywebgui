@@ -29,3 +29,9 @@ button{
     max-height: 400px;
     width: auto;
 }
+
+.my-table{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+

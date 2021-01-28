@@ -26,7 +26,7 @@
                         datasets: [
                             {
                                 label: 'Data One',
-                                backgroundColor: '#f87979',
+                                backgroundColor: '#2aa198',
                                 data: [40, 20]
                             }
                         ]
@@ -52,7 +52,7 @@
                     datasets: [
                         {
                             label: 'Population',
-                            backgroundColor: '#f87979',
+                            backgroundColor: '#2aa198',
                             data: bins
                         }
                     ]
@@ -79,5 +79,7 @@
 </script>
 
 <style scoped>
+    @import "../assets/styles/shared.css";
+    @import "../assets/styles/light.css";
 
 </style>

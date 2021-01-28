@@ -7,19 +7,19 @@
             <img id="big-result-img" :src="country['flag']" :alt="'Flag of' + country['name']">
             </div>
             <div id="big-result-right">
-                <data-table v-bind:country="country"/>
+                <data-table v-bind:country="country" @table:area="showAreaPlot" @table:pop="showPopulationPlot" @table:noplot="showNoPlot"/>
 
             </div>
 
         </div>
-        <plots v-bind:country="country" v-bind:all-countries="allCountries"/>
+        <plots v-if="this.plot==='population'" v-bind:country="country" v-bind:all-countries="allCountries"/>
 
     </div>
 </template>
 
 <script>
     import DataTable from "./DataTable";
-    import Plots from "./Plots";
+    import Plots from "./PopulationPlot";
 
     var country;
     var allCountries;
@@ -35,13 +35,30 @@
 
         },
         methods: {
-            getPopulationPlotData(){
-                var pops = this.allCountries.map(x => x['population']).sort();
-                return pops;
+            showPopulationPlot(){
+                if (this.plot==='population'){
+                    this.plot = '';
+                } else{
+                    this.plot = "population";
+                }
+            },
+            showAreaPlot(){
+                if (this.plot==='population'){
+                    this.plot = '';
+                } else{
+                    this.plot = "population";
+                }
+            },
+            showNoPlot(){
+                this.plot = "";
+            },
 
 
+        },
+        data() {
+            return {
+                plot: ""
             }
-
         }
     }
 

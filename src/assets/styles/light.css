@@ -10,3 +10,9 @@ body {
     border-right-width: 1px;
 
 }
+
+.interactive-row{}
+
+.interactive-row:hover{
+    box-shadow: 0px 5px 15px #2c3e50;
+}
