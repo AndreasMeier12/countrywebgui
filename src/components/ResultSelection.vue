@@ -1,14 +1,25 @@
 <template>
     <div id="result-selection">
         <p>{{result.length}} result(s)</p>
-        <div v-if="result.length<=3">        <button v-for="country in result" v-on:click="selectCountry(country['name'])" :key="country['name']"><img :src="country['flag']" class="button-flag" :alt="country['name']"/> {{country['name']}}</button>
+        <div v-if="showAll()">
+            <button v-if="result.length > 3" v-on:click="toggleShowMore">-</button>
+            <button v-for="country in result" v-on:click="selectCountry(country['name'])" :key="country['name']"><img
+                    :src="country['flag']" class="button-flag" :alt="country['name']"/> {{country['name']}}
+            </button>
         </div>
-        <div v-if="result.length>3">        <button v-for="country in result.slice(0,3)" v-on:click="selectCountry(country['name'])" :key="country['name']"><img :src="country['flag']" class="button-flag" :alt="country['name']"/> {{country['name']}}</button>
-            <button v-for="country in result.slice(3,4)" :key="country['name']"><img :src="country['flag']" class="grey-image" alt="more"/> ...</button>
+        <div v-if="!showAll()">
+            <button v-for="country in result.slice(0,3)" v-on:click="selectCountry(country['name'])"
+                    :key="country['name']"><img :src="country['flag']" class="button-flag" :alt="country['name']"/>
+                {{country['name']}}
+            </button>
+            <button v-for="country in result.slice(3,4)" v-on:click="toggleShowMore" :key="country['name']"><img
+                    :src="country['flag']"
+                    class="grey-image" alt="more"/> ...
+            </button>
         </div>
     </div>
 
-    
+
 </template>
 
 <script>
@@ -17,22 +28,34 @@
         props: {
             result: Array,
 
+
         },
-        methods :{
-            selectCountry(country){
+        methods: {
+            selectCountry(country) {
                 this.$emit("select:country", country)
+            },
+            showAll() {
+                return this.showMore || this.result.length <= 3;
+            },
+            toggleShowMore() {
+                this.showMore = !this.showMore;
+            }
+        },
+        data() {
+            return {
+                showMore: false,
             }
         }
     }
 </script>
 
 <style scoped>
-    .button-flag{
+    .button-flag {
         width: 50px;
         height: auto;
     }
 
-    .button-flag-more{
+    .button-flag-more {
         width: 50px;
         height: auto;
         background-color: gray;
@@ -40,7 +63,7 @@
 
     }
 
-    .grey-image{
+    .grey-image {
         width: 50px;
         height: auto;
         background-color: gray;
