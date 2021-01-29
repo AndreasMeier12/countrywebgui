@@ -3,6 +3,10 @@ body {
     color: #586e75;
 }
 
+button{
+    background:  	#eee8d5;
+}
+
 .navigation {
     background-color: #fdf6e3;
     border-right-style: solid;
