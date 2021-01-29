@@ -42,8 +42,11 @@
                 var bins = [];
                 var binLabels = [];
                 for (var i = 0; i < nBins; i++) {
+                    const binSize = intervalSize * Math.pow(0.5,i);
+                    if (binSize >= 1){
                     bins.push(0);
                     binLabels.push(String(intervalSize * Math.pow(0.5,i)));
+                    }
                 }
                 for (var j = 0; j < pops.length; j++) {
                     const curBin = Math.floor(Math.log(intervalSize/pops[j])/Math.log(2));
