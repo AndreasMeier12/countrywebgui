@@ -12,6 +12,42 @@ button{
 
 }
 
+@media screen and (max-width: 800px) {
+    #container{
+        display: none;
+    }
+    .navigation{
+        height: auto;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+    #big-result-img{
+        max-width: 75vw;
+        height: auto;
+
+    }
+    #big-result-box{
+        width: 90vw;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    #container {
+        display: flex;
+    }
+    .my-table{
+        align-self: center;
+    }
+
+}
+
+@media screen and (min-width: 801px){
+
+
+}
+
+
 #big-result-box{
     border: 1px solid green ;
     float:top;
@@ -21,13 +57,12 @@ button{
 }
 
 #container {
-
-    display: inline-flex
+    display: inline-flex;
 }
 
 #big-result-img{
-    max-height: 400px;
-    width: auto;
+    max-width: 300px;
+    height: auto;
 }
 
 .my-table{
