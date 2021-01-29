@@ -52,7 +52,7 @@ button{
 
 
 #big-result-box{
-    border: 1px solid green ;
+    border: 1px solid #839496  ;
     float:top;
     display: inline-flex;
 
@@ -70,7 +70,7 @@ button{
 
 .my-table{
     border-collapse: collapse;
-    border: 1px solid black;
+    border: 1px solid #839496 ;
 }
 
 
