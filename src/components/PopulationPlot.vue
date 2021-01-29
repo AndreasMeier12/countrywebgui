@@ -8,6 +8,9 @@
         props: {
             country: null,
             allCountries: null,
+            width: {
+                value: '100vw',
+            }
         },
         data() {
             return {

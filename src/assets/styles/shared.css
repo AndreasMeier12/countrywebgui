@@ -39,6 +39,9 @@ button{
     .my-table{
         align-self: center;
     }
+    #plot-container{
+        max-width: 85vw;
+    }
 
 }
 
@@ -69,4 +72,5 @@ button{
     border-collapse: collapse;
     border: 1px solid black;
 }
+
 

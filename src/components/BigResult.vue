@@ -12,8 +12,10 @@
             </div>
 
         </div>
+        <div id="plot-container">
         <plots v-if="this.plot==='population'" v-bind:country="country" v-bind:all-countries="allCountries"/>
         <area-plot v-if="this.plot==='area'" v-bind:country="country" v-bind:all-countries="allCountries"/>
+        </div>
 
     </div>
 </template>
