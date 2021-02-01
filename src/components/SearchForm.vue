@@ -4,7 +4,7 @@
             <label>Search
                 <input v-model="searchName" type="text"/>
             </label>
-            <button>Go!</button>
+            <button class="small-button">Go!</button>
         </form>
 
     </div>

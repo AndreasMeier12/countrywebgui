@@ -4,7 +4,7 @@
             <tr class="interactive-row" id="data-pop" v-on:click="selectPop()">
                 <th class="my-table" id="data-pop-left">Population</th>
                 <th class="my-table" id="data-pop-right">{{country['population']}}</th>
-                <th class="my-table"><button>+</button></th>
+                <th class="my-table"><button class="small-button">+</button></th>
             </tr>
 
             <tr class="my-table" id="data-continent">
@@ -16,7 +16,7 @@
             <tr class="interactive-row" v-on:click="selectArea()" id="data-area" >
                 <th class="my-table" id="data-area-left">Area</th>
                 <th class="my-table" id="data-area-right">{{country['area']}}</th>
-                <th class="my-table"><button>+</button></th>
+                <th class="my-table"><button class="small-button">+</button></th>
 
             </tr>
 
