@@ -2,7 +2,7 @@
     <div id="result-selection">
         <p>{{result.length}} result(s) <button v-on:click="toggleShowSelection" class="small-button">hide</button></p>
         <div v-if="showAll() && this.showSelection">
-            <button v-if="result.length > 3" v-on:click="toggleShowMore" class="small-button">-</button>
+            <button v-if="result.length > 3" v-on:click="toggleShowMore" class="button-less">-</button>
             <button v-for="country in result" v-on:click="selectCountry(country['name'])" :key="country['name']"><img
                     :src="country['flag']" class="button-flag" :alt="country['name']"/> {{country['name']}}
             </button>
