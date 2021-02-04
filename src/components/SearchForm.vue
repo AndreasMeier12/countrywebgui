@@ -19,18 +19,15 @@
             }
         },
         methods: {
-            async search() {
+            search() {
                 console.log("Sorch name: " + this.searchName);
-                try {
-                    const url = 'https://restcountries.eu/rest/v2/name/' + this.searchName;
-                    const response = await fetch(url)
-                    const data = await response.json()
+                    const data = this.allCountries.filter(x => x['name'].toLowerCase().includes(this.searchName.toLocaleLowerCase()));
                     this.$emit('search:country', data)
-                } catch (e) {
-                    console.log(e)
-                }
             }
         },
+        props: {
+            allCountries: Array,
+        }
     }
 </script>
 

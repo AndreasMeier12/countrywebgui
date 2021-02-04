@@ -2,7 +2,7 @@
   <div id="app">
     <div id="container">
     <div class="navigation">
-    <search-form @search:country="searchCountry"/>
+    <search-form @search:country="searchCountry" v-bind:all-countries="allCountries"/>
 
     <div v-if="manyResults">
     <result-selection @select:country="selectCountry" v-bind:result="result"/>
