@@ -4,13 +4,13 @@
         <div v-if="showAll() && this.showSelection">
             <button v-if="result.length > 3" v-on:click="toggleShowMore" class="button-less">-</button>
             <button v-for="country in result" v-on:click="selectCountry(country['name'])" :key="country['name']"><img
-                    :src="country['flag']" class="button-flag" :alt="country['name']"/> {{country['name']}}
+                    :src="country['flag']" class="button-flag" :alt="country['name']"/> {{shortenName(country['name'])}}
             </button>
         </div>
         <div v-if="!showAll() && this.showSelection">
             <button v-for="country in result.slice(0,3)" v-on:click="selectCountry(country['name'])"
                     :key="country['name']"><img :src="country['flag']" class="button-flag" :alt="country['name']"/>
-                {{country['name']}}
+                {{shortenName(country['name'])}}
             </button>
             <button v-for="country in result.slice(3,4)" v-on:click="toggleShowMore" :key="country['name']"><img
                     :src="country['flag']"
@@ -42,6 +42,13 @@
             },
             toggleShowSelection() {
                 this.showSelection = !this.showSelection;
+            },
+            shortenName(a){
+                if (a.length > 10){
+                    return a.slice(0,8) + '...';
+                }
+                return a;
+
             }
         },
         data() {
