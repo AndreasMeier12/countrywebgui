@@ -32,6 +32,10 @@
         },
         methods: {
             selectCountry(country) {
+                if (screen.width <= 400 && this.showMore){
+                    this.toggleShowMore();
+                }
+
                 this.$emit("select:country", country)
             },
             showAll() {
