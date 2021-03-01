@@ -12,7 +12,13 @@
     <div id="one-result" v-if="oneResult">
       <big-result v-bind:country="country"  v-bind:allCountries="allCountries"/>
     </div>
+      <div id="source-link">
+        <a href="https://github.com/AndreasMeier12/countrywebgui">Source</a>
+      </div>
+
     </div>
+
+
     </div>
   </div>
 </template>
