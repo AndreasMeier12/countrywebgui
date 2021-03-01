@@ -17,7 +17,24 @@
                 chartdata: null,
                 options: {
                     responsive: true,
-                    maintainAspectRatio: false
+                    maintainAspectRatio: false,
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: "Upper bound of population"
+                            }
+                        }
+                        ],
+                        yAxes: [ {
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'count'
+                            }
+                        } ],
+                    }
                 }
             }
         },

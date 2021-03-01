@@ -14,7 +14,24 @@
                 chartdata: null,
                 options: {
                     responsive: true,
-                    maintainAspectRatio: false
+                    maintainAspectRatio: false,
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: "Upper bound of area/m^2"
+                            }
+                        }
+                        ],
+                        yAxes: [ {
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'count'
+                            }
+                        } ],
+                    }
                 }
             }
         },
@@ -53,13 +70,17 @@
 
                 const res = {
                     labels: binLabels,
+
                     datasets: [
                         {
                             label: 'Area',
                             backgroundColor: '#2aa198',
                             data: bins
                         }
-                    ]
+                    ],
+                    options: {
+
+                    }
                 };
                 console.log(res);
                 return res;
