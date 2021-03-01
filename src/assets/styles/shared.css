@@ -21,30 +21,34 @@ button{
         height: 100%;
 
     }
+
+    #main-info{
+        position: relative;
+        top: 150px;
+        margin-left: 0;
+    }
+
     .navigation{
         height: auto;
-        width: 100%;
+        width: 100vw;
         top: 0;
         left: 0;
-        flex-grow: 1;
-        position: fixed;
 
     }
     #big-result-img{
         max-width: 75vw;
         height: auto;
+        margin-left: 0;
+
 
     }
     #big-result-box{
+        margin-left: 0;
+
         width: 90vw;
         height: auto;
 
-        position: relative;
-        overflow: scroll;
-        top: 150px;
-    }
-    #container {
-        display: flex;
+
     }
 
     #container div {
@@ -55,8 +59,7 @@ button{
     }
     #plot-container{
         max-width: 85vw;
-        margin-top: 100px;
-        position: relative;
+        margin-top: 20px;
         height: auto;
 
     }
