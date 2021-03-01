@@ -20,7 +20,7 @@
                             display: true,
                             scaleLabel: {
                                 display: true,
-                                labelString: "Upper bound of area/m^2"
+                                labelString: "Upper bound of area/km^2"
                             }
                         }
                         ],
@@ -59,7 +59,7 @@
                     const binSize = intervalSize * Math.pow(0.5,i);
                     if (binSize >= 1){
                         bins.push(0);
-                        binLabels.push(String(Math.floor(intervalSize * Math.pow(0.5,i))));
+                        binLabels.push(String(this.formatNumber(Math.floor(intervalSize * Math.pow(0.5,i)))));
                     }
                 }
                 binLabels = binLabels.reverse();
@@ -90,6 +90,10 @@
 
             getAreaData() {
             },
+            formatNumber(a){
+                return a.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+            }
         },
 
         mounted() {
