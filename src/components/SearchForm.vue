@@ -1,8 +1,8 @@
 <template>
     <div id="search-field">
         <form id="search-form" @submit.prevent="search">
-            <label>Search
-                <input v-model="searchName" type="text"/>
+            <label>Search for country
+                <input v-model="searchName" type="text" id="search-form-input" placeholder="antigua:" />
             </label>
             <button class="small-button">Go!</button>
         </form>
