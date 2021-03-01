@@ -9,11 +9,12 @@ button{
     z-index: 1;
     top:0;
     left:0;
-    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: hidden;
 
 }
 
-@media screen and (max-width: 400px)  {
+@media screen and (max-width: 800px)  {
     #container{
         display: flex;
         flex-direction: column;
@@ -72,64 +73,9 @@ button{
 
 }
 
-@media screen and (max-width: 800px) and (min-width: 401px) {
-    #container{
-        display: flex;
-        flex-direction: column;
-        align-content: flex-start;
-        height: 100%;
-
-    }
-    .navigation{
-        height: auto;
-        width: 100%;
-        top: 0;
-        left: 0;
-        flex-grow: 1;
-        position: fixed;
-
-    }
-    #big-result-img{
-        max-width: 75vw;
-        height: auto;
-
-    }
-    #big-result-box{
-        width: 90vw;
-        height: auto;
-
-        position: relative;
-        overflow: scroll;
-        top: 100px;
-    }
-    #container {
-        display: flex;
-    }
-
-    #container div {
-        display: block;
-    }
-    .my-table{
-        align-self: center;
-    }
-    #plot-container{
-        max-width: 85vw;
-        margin-top: 100px;
-        position: relative;
-        height: auto;
-
-    }
-    .small-button{
-        width: 50px;
-        height: 30px;
-    }
 
 
-
-}
-
-@media screen and (min-width: 801px){
-
+@media screen and (min-width: 801px) {
 
 }
 
