@@ -68,6 +68,11 @@
                 showMore: false,
                 showSelection: true,
             }
+        },
+        watch: {
+            result: function(){
+                this.showSelection = true;
+    }
         }
     }
 </script>
