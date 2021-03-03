@@ -1,6 +1,6 @@
 <template>
     <div id="result-selection">
-        <p>{{result.length}} result(s) <button v-on:click="toggleShowSelection" class="small-button">hide</button></p>
+        <p>{{result.length}} result(s) <button v-on:click="toggleShowSelection" class="small-button">{{hideButtonText()}}</button></p>
         <div v-if="showAll() && this.showSelection">
             <button v-if="result.length > 3" v-on:click="toggleShowMore" class="button-less">-</button>
             <button v-for="country in result" v-on:click="selectCountry(country['name'])" :key="country['name']"><img
@@ -52,6 +52,14 @@
                     return a.slice(0,8) + '...';
                 }
                 return a;
+
+            },
+
+            hideButtonText(){
+                if (!this.showSelection){
+                    return "unhide";
+                }
+                return "hide";
 
             }
         },
