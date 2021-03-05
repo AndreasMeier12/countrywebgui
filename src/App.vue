@@ -15,6 +15,7 @@
       <div id="source-link">
         <a href="https://github.com/AndreasMeier12/countrywebgui">Source</a>
       </div>
+      <button v-on:click="toggleDark">Dark</button>
 
     </div>
 
@@ -58,6 +59,13 @@ export default {
       const url = 'https://restcountries.eu/rest/v2/all';
       const response = await fetch(url);
       this.allCountries = await response.json();
+    },
+    toggleDark(){
+      console.log("dork")
+      this.theme = this.theme === 'darkMode' ? '' : 'darkMode'; //toggles theme value
+      document.documentElement.setAttribute('data-theme', this.theme); // sets the data-theme attribute
+      localStorage.setItem('theme', this.theme); // stores theme value on local storage
+
     }
 
   },
@@ -68,6 +76,7 @@ export default {
       manyResults: false,
       country: null,
       allCountries : {},
+      theme: '',
     }
   },
   mounted() {
