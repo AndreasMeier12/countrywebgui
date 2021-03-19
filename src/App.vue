@@ -2,7 +2,9 @@
   <div id="app">
     <div id="container">
     <div class="navigation">
+      <button v-on:click="toggleDark">☀️/🌙</button>
     <search-form @search:country="searchCountry" v-bind:all-countries="allCountries"/>
+
 
     <div v-if="manyResults">
     <result-selection @select:country="selectCountry" v-bind:result="result"/>
@@ -15,7 +17,7 @@
       <div id="source-link">
         <a href="https://github.com/AndreasMeier12/countrywebgui">Source</a>
       </div>
-      <button v-on:click="toggleDark">Dark</button>
+
 
     </div>
 
